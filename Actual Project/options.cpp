@@ -12,3 +12,9 @@ Options::~Options()
 {
     delete ui;
 }
+
+void Options::on_pushButton_8_clicked()
+{
+
+    qApp->exit();
+}

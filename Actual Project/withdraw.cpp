@@ -12,3 +12,8 @@ withdraw::~withdraw()
 {
     delete ui;
 }
+
+void withdraw::on_pushButton_3_clicked()
+{
+    qApp->exit();
+}

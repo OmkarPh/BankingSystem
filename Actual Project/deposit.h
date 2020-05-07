@@ -15,6 +15,9 @@ public:
     explicit Deposit(QWidget *parent = nullptr);
     ~Deposit();
 
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Deposit *ui;
 };

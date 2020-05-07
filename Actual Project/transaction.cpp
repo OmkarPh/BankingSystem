@@ -1,10 +1,96 @@
-#include "utility.h"
+#include "transaction.h"
+/*
 
-class utilityData : public QSharedData
+Layout for csv file:
+
+11772201,1436,OmkarGajananPhansopkar,4500
+11772202,1234,KaranSudhakarKotian,5800
+11834592,2020,AniruddhaShriwant,15500
+11773503,9876,RupeshSandeshRaut,5400
+11773505,4567,RohanDarade,9000
+
+*/
+
+transaction::transaction(string accNo)
 {
-public:
+        this->accNo = accNo;
+        fstream file;
+        file.open("accountsDatabase.csv",ios::in);
+        this->accLineNo=0;
+        while(!file.eof()){
+            this->accLineNo++;
+            getline(file,accRecord);
+            stringstream ss(accRecord);
+            getline(ss,this->accNo,',');
+            getline(ss,this->pinString,',');
+            getline(ss,this->name,',');
+            getline(ss,this->balanceString,',');
 
-};
+            if(this->accNo==accNo){
+                this->pin = stoi(pinString);
+                this->currBalance = stoi(balanceString);
+                break;
+            }
+
+        }
+
+        file.close();
+        //      Fetch out pin for the given account no              and             set Line no when line found     and     String  accRecord
+}
+
+void transaction::updateBalance(){
+    // update balance of csv file using this.balance        and     also change String accRecord
+    accRecord = this->accNo+","+this->pinString+","+this->name+","+this->balanceString;
+
+    ifstream fileReader;
+    fileReader.open("accountsDatabase.csv",ios::in);
+
+    ofstream fileWriterNewer;
+    fileWriterNewer.open("newTempFile.csv",fstream::app);
+
+    int traverse = this->accLineNo;
+    string currentLine;
+
+    while(traverse>1){
+        getline(fileReader,currentLine);
+        fileWriterNewer<<currentLine<<"\n";
+        traverse--;
+    }
+
+    fileWriterNewer<< this->accRecord <<"\n";
+    getline(fileReader,currentLine);
+
+    while(!fileReader.eof()){
+        getline(fileReader,currentLine);
+        fileWriterNewer<<currentLine<<"\n";
+    }
+
+    fileReader.close();
+    fileWriterNewer.close();
+
+    remove("accountsDatabase.csv");
+    rename("newTempFile.csv","accountsDatabase.csv");
+
+}
+void transaction::deposit(int amount){
+        this->currBalance = this->currBalance + amount;
+        balanceString = to_string(this->currBalance);
+        updateBalance();
+}
+bool transaction::withdraw(int amount){
+        if( (this->currBalance - amount) < 0  )
+            return false;
+
+        this->currBalance = currBalance - amount;
+        balanceString = to_string(currBalance);
+
+        updateBalance();
+
+        return true;
+}
+
+/*
+
 
 /*                      My csv file code :
 
@@ -109,7 +195,7 @@ void csvFile::editRecord(string newLine, string custID, int dataLineNth){
 11773505,4567,RohanDarade,9000
 
 
-*/
+
 
 utility::utility(string accNo) : data(new utilityData)
 {
@@ -198,8 +284,5 @@ bool utility::withdraw(int amount){
 
         return true;
 }
-utility::~utility()
-{
-}
 
-
+*/

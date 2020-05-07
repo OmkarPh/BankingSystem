@@ -15,6 +15,9 @@ public:
     explicit balance(QWidget *parent = nullptr);
     ~balance();
 
+private slots:
+    void on_pushButton_3_clicked();
+
 private:
     Ui::balance *ui;
 };

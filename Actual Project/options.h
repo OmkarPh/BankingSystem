@@ -15,6 +15,9 @@ public:
     explicit Options(QWidget *parent = nullptr);
     ~Options();
 
+private slots:
+    void on_pushButton_8_clicked();
+
 private:
     Ui::Options *ui;
 };

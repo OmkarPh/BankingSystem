@@ -12,3 +12,9 @@ balance::~balance()
 {
     delete ui;
 }
+
+void balance::on_pushButton_3_clicked()
+{
+
+    qApp->exit();
+}

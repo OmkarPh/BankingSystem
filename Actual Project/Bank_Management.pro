@@ -22,7 +22,6 @@ SOURCES += \
     main.cpp \
     options.cpp \
     transaction.cpp \
-    utility.cpp \
     welcome.cpp \
     withdraw.cpp
 
@@ -31,7 +30,6 @@ HEADERS += \
     deposit.h \
     options.h \
     transaction.h \
-    utility.h \
     welcome.h \
     withdraw.h
 
@@ -48,4 +46,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    accountsDatabase.csv
+    accountsDatabase.csv \
+    userNameNPass.csv

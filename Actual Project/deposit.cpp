@@ -12,3 +12,9 @@ Deposit::~Deposit()
 {
     delete ui;
 }
+
+void Deposit::on_pushButton_3_clicked()
+{
+
+    qApp->exit();
+}

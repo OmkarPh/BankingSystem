@@ -1,20 +1,19 @@
-#ifndef UTILITY_H
-#define UTILITY_H
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
 
 #include<iostream>
 #include <QMainWindow>
 #include <QObject>
-#include <QQuickItem>
-#include <QSharedDataPointer>
 #include <QWidget>
 #include<string>
 #include<sstream>
 #include<fstream>
 using namespace std;
-class utilityData;
 
-class utility
+
+class transaction
 {
+
 private:
      string  accNo;
 
@@ -28,18 +27,17 @@ private:
 
      int accLineNo;
      string accRecord;
-    Q_OBJECT
 public:
-    utility(string accNo);
-    utility(const utility &);
-    utility &operator=(const utility &);
+    transaction(string accNo);
+    transaction(const transaction &);
+    transaction &operator=(const transaction &);
+    ~transaction();
+
+
     void updateBalance();
     void deposit(int amount);
     bool withdraw(int amount);
-    ~utility();
 
-private:
-    QSharedDataPointer<utilityData> data;
 };
 
-#endif // UTILITY_H
+#endif // TRANSACTION_H
