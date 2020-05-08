@@ -5,6 +5,7 @@
 #include<string>
 #include<fstream>
 #include<iostream>
+#include<QString>
 #include<QDialog>
 #include<QMessageBox>
 using namespace  std;
@@ -19,11 +20,26 @@ class Welcome : public QMainWindow
 public:
     Welcome(QWidget *parent = nullptr);
     ~Welcome();
+    QString userPath;
+    QString accPath ;
+    QString username;
+    QString password;
+    QString validUsername;
+    QString validPassword;
+    QString accountNo;
+
 
 private slots:
     void on_loginButton_clicked();
 
     void on_pushButton_clicked();
+
+    void on_username_textChanged(const QString &arg1);
+
+    void on_password_textChanged(const QString &arg1);
+
+    bool canEnableLoginButton();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Welcome *ui;

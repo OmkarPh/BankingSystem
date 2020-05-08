@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/db">
+        <file>accountsDatabase.csv</file>
+        <file>userNameNPass.csv</file>
+    </qresource>
+</RCC>
