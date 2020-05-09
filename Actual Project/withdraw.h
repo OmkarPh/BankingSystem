@@ -1,6 +1,6 @@
 #ifndef WITHDRAW_H
 #define WITHDRAW_H
-
+#include<transaction.h>
 #include <QDialog>
 
 namespace Ui {
@@ -12,11 +12,13 @@ class withdraw : public QDialog
     Q_OBJECT
 
 public:
-    explicit withdraw(QWidget *parent = nullptr);
+    explicit withdraw(QWidget *parent = nullptr, transaction *currentCust = nullptr);
     ~withdraw();
-
+    transaction *customer;
 private slots:
     void on_pushButton_3_clicked();
+
+    void on_withdrawButton_clicked();
 
 private:
     Ui::withdraw *ui;

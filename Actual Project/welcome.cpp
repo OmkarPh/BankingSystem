@@ -51,7 +51,7 @@ void Welcome::on_loginButton_clicked()
 {
     username = ui->username->text();
     password = ui->password->text();
-
+    int lineNo = 0;
     bool foundUser = false;
 
     // Exception code
@@ -65,14 +65,15 @@ void Welcome::on_loginButton_clicked()
        QTextStream in(&file);
        while (!in.atEnd())
        {
+          lineNo++;
           QString eachLine = in.readLine(); //read one line at a time
           QStringList words = eachLine.split(',');
           validUsername = words.at(0);
           validPassword = words.at(1);
           accountNo = words.at(2);
-          //QMessageBox::about(this," user ",validUsername);
-         // QMessageBox::about(this," pass ",validPassword);
-         // QMessageBox::about(this," acc ",accountNo);
+          //    QMessageBox::about(this," user ",validUsername);
+       //       QMessageBox::about(this," pass ",validPassword);
+    //          QMessageBox::about(this," acc ",accountNo);
           if(validUsername==username){
               foundUser = true;
               break;
@@ -84,19 +85,25 @@ void Welcome::on_loginButton_clicked()
            if(validPassword == password){
                    // Change window to options.ui, hide this login window
                QMessageBox::about(this,"Successful Login","Correct username and password :)");
+                currentCutomer = new Options(this,lineNo);
+                currentCutomer->show();
+                this->hide();
+                currentCutomer->exec();
+                this->show();
            }else{
-               // Password is wrong, so create a dialog saying pass is wrong, Clear the lineEdit field for password
+               //  This block is complete
                QMessageBox::critical(this,"Invalid Password","The password you entered \ndoes not validate with the username entered\n Try again and keep track of Case");
                ui->password->setText("");
                return;
            }
 
        }else{
-           // Show invalid username, it is not registered in a dialog
            QMessageBox::critical(this,"Invalid Username","The username you entered is not in our System\n Either it is incorrect or not registered with us yet");
            QMessageBox::StandardButton newSignUp =  QMessageBox::question(this,"Invalid Username","Would you like to sign up for a new account?",QMessageBox::Yes | QMessageBox::No);
-           if(newSignUp == QMessageBox::Yes)
+           if(newSignUp == QMessageBox::Yes){
                QMessageBox::about(this,"Sign Up","Redirecting to signup page");
+               // Signup block is incomplete
+           }
        }
 
        ui->username->setText("");

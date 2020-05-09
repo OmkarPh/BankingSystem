@@ -281,22 +281,6 @@ selection{
      <string>Login</string>
     </property>
    </widget>
-   <widget class="QGroupBox" name="groupBox_2">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>290</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="title">
-     <string>GroupBox</string>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources/>

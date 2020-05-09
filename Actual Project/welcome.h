@@ -8,6 +8,7 @@
 #include<QString>
 #include<QDialog>
 #include<QMessageBox>
+#include<options.h>
 using namespace  std;
 QT_BEGIN_NAMESPACE
 namespace Ui { class Welcome; }
@@ -27,7 +28,7 @@ public:
     QString validUsername;
     QString validPassword;
     QString accountNo;
-
+    Options *currentCutomer;
 
 private slots:
     void on_loginButton_clicked();

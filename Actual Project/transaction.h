@@ -15,23 +15,22 @@ class transaction
 {
 
 private:
-     string  accNo;
 
-     string pinString;
-     int pin;
-
-     string name;
-
-     string  balanceString;
-     int currBalance;
-
-     int accLineNo;
-     string accRecord;
 public:
-    transaction(string accNo);
+    transaction(QWidget* parent, int lineNoObtained);
     transaction(const transaction &);
     transaction &operator=(const transaction &);
     ~transaction();
+
+    int lineNo;
+
+    QString userPath;
+    QString accPath ;
+
+    QString accNoString, pinString, name, balanceString;
+    int pin, accNo, balance;
+
+    QString accRecord;
 
 
     void updateBalance();

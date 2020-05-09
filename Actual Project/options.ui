@@ -28,19 +28,6 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(170, 255, 127);</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>231</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Choose transaction: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -60,11 +47,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; color:#0000ff;&quot;&gt;XYZ bank&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="withdraw">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>130</y>
+     <y>190</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -84,9 +71,9 @@ selection-background-color: rgb(255, 255, 127);</string>
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>110</y>
+     <y>170</y>
      <width>20</width>
-     <height>301</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="orientation">
@@ -97,7 +84,7 @@ selection-background-color: rgb(255, 255, 127);</string>
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>160</y>
+     <y>200</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -113,11 +100,11 @@ selection-background-color: rgb(255, 255, 127);</string>
     <string>Mini Statement</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="viewBalance">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>330</y>
+     <y>350</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -133,11 +120,11 @@ selection-background-color: rgb(255, 255, 127);</string>
     <string>View Balance</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="deposit">
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>230</y>
+     <y>270</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -153,7 +140,7 @@ selection-background-color: rgb(255, 255, 127);</string>
     <string>Deposit</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="logout">
    <property name="geometry">
     <rect>
      <x>550</x>
@@ -178,7 +165,7 @@ selection-background-color: rgb(255, 255, 127);</string>
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>250</y>
+     <y>290</y>
      <width>251</width>
      <height>101</height>
     </rect>
@@ -234,13 +221,69 @@ selection-background-color: rgb(255, 255, 127);</string>
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>110</y>
+     <y>150</y>
      <width>161</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ff0000;&quot;&gt;Not available yet :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>70</y>
+     <width>371</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Choose transaction: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; color:#fe0303;&quot;&gt;Welcome,&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="welcomeName">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>70</y>
+     <width>421</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(85, 0, 127);</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

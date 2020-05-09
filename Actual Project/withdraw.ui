@@ -28,11 +28,11 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 204, 84);</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="withdrawButton">
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>280</y>
+     <y>290</y>
      <width>161</width>
      <height>51</height>
     </rect>
@@ -48,7 +48,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>180</y>
+     <y>150</y>
      <width>111</width>
      <height>61</height>
     </rect>
@@ -57,11 +57,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#3603a3;&quot;&gt;( Enter only the &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-style:italic; color:#3603a3;&quot;&gt;multiples of 100 )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="amountToDeposit">
+  <widget class="QSpinBox" name="amountToWithdraw">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>170</y>
+     <y>140</y>
      <width>241</width>
      <height>81</height>
     </rect>
@@ -125,7 +125,7 @@ border-color: rgb(170, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>70</y>
+     <y>40</y>
      <width>501</width>
      <height>31</height>
     </rect>
@@ -151,7 +151,7 @@ border-color: rgb(170, 0, 0);</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>120</y>
+     <y>90</y>
      <width>321</width>
      <height>31</height>
     </rect>
@@ -171,6 +171,63 @@ border-color: rgb(170, 0, 0);</string>
    </property>
    <property name="text">
     <string>Logout and Exit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>240</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; color:#003a00;&quot;&gt;Pin :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pinEntered">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>230</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>4</number>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="warning">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>220</y>
+     <width>211</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 204, 84);</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-style:italic; color:#f40000;&quot;&gt;Incorrect Pin try again ! &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

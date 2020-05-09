@@ -1,4 +1,7 @@
 #include "transaction.h"
+#include<QFile>
+#include<QMessageBox>
+#include<QTextStream>
 /*
 
 Layout for csv file:
@@ -11,44 +14,49 @@ Layout for csv file:
 
 */
 
-transaction::transaction(string accNo)
+transaction::transaction(QWidget* parent, int lineNoObtained)
 {
-        this->accNo = accNo;
-        fstream file;
-        file.open("accountsDatabase.csv",ios::in);
-        this->accLineNo=0;
-        while(!file.eof()){
-            this->accLineNo++;
-            getline(file,accRecord);
-            stringstream ss(accRecord);
-            getline(ss,this->accNo,',');
-            getline(ss,this->pinString,',');
-            getline(ss,this->name,',');
-            getline(ss,this->balanceString,',');
 
-            if(this->accNo==accNo){
-                this->pin = stoi(pinString);
-                this->currBalance = stoi(balanceString);
-                break;
-            }
+    this->lineNo = lineNoObtained;
 
+    // Exception code
+        QFile file(accPath);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            QMessageBox::warning(parent,"Exception","file could not be opened");
+            return;
         }
+    // Exception code
 
-        file.close();
-        //      Fetch out pin for the given account no              and             set Line no when line found     and     String  accRecord
+       QTextStream in(&file);
+       while (lineNoObtained>0)
+       {
+          lineNoObtained--;
+          QString eachLine = in.readLine(); //read one line at a time
+          QStringList words = eachLine.split(',');
+          accNoString = words.at(0);
+          pinString = words.at(1);
+          name = words.at(2);
+          balanceString = words.at(3);
+       }
+       accNo = accNoString.toInt();
+       pin = accNoString.toInt();
+       balance = balanceString.toInt();
+       file.close();
+
 }
 
 void transaction::updateBalance(){
-    // update balance of csv file using this.balance        and     also change String accRecord
-    accRecord = this->accNo+","+this->pinString+","+this->name+","+this->balanceString;
+    // update balance of csv file using QString accRecord
+    accRecord = this->accNoString+","+this->pinString+","+this->name+","+this->balanceString;
 
+    /*
     ifstream fileReader;
     fileReader.open("accountsDatabase.csv",ios::in);
 
     ofstream fileWriterNewer;
     fileWriterNewer.open("newTempFile.csv",fstream::app);
 
-    int traverse = this->accLineNo;
+    int traverse = this->lineNo;
     string currentLine;
 
     while(traverse>1){
@@ -71,19 +79,19 @@ void transaction::updateBalance(){
     remove("accountsDatabase.csv");
     rename("newTempFile.csv","accountsDatabase.csv");
 
+    */
 }
 void transaction::deposit(int amount){
-        this->currBalance = this->currBalance + amount;
-        balanceString = to_string(this->currBalance);
+        this->balance = this->balance + amount;
+        balanceString = QString::number(balance);
         updateBalance();
 }
 bool transaction::withdraw(int amount){
-        if( (this->currBalance - amount) < 0  )
+        if( (this->balance - amount) < 0  )
             return false;
 
-        this->currBalance = currBalance - amount;
-        balanceString = to_string(currBalance);
-
+        this->balance = balance - amount;
+        balanceString = QString::number(balance);
         updateBalance();
 
         return true;
