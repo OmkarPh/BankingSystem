@@ -21,11 +21,11 @@ void withdraw::on_pushButton_3_clicked()
 
 void withdraw::on_withdrawButton_clicked()
 {
-    QString amountStr = ui->amountToWithdraw->text();
+    int amount = ui->amountToWithdraw->value();
     QString pinStr = ui->pinEntered->text();
 
     if(pinStr == customer->pinString){
-        customer->withdraw(amountStr.toInt());
+        customer->withdraw(amount);
         ui->warning->setVisible(false);
         QMessageBox::about(this,"Withdrawal successful", "Please collect the cash.");
         this->close();
@@ -33,4 +33,9 @@ void withdraw::on_withdrawButton_clicked()
     }
     ui->warning->setVisible(true);
 
+}
+
+void withdraw::on_pushButton_2_clicked()
+{
+    this->close();
 }

@@ -5,6 +5,9 @@
 #include <QDialog>
 #include<QFile>
 #include<iostream>
+#include<deposit.h>
+#include<about.h>
+#include<withdraw.h>
 using namespace std;
 namespace Ui {
 class Options;
@@ -21,6 +24,7 @@ public:
 
     QString userPath;
     QString accPath ;
+    about *abt;
 
     QString accNoString, pinString, name, balanceString;
     int pin, accNo, balance;
@@ -30,6 +34,14 @@ private slots:
     void on_pushButton_8_clicked();
 
     void on_logout_clicked();
+
+    void on_viewBalance_clicked();
+
+    void on_withdraw_clicked();
+
+    void on_deposit_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::Options *ui;

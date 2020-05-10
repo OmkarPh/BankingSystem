@@ -16,13 +16,17 @@ Layout for csv file:
 
 transaction::transaction(QWidget* parent, int lineNoObtained)
 {
-
+    this->parent = parent;
     this->lineNo = lineNoObtained;
+    this->lineNo = lineNoObtained;
+    userPath = ":/database/DB/userNameNPass.csv";
+    accPath = ":/database/DB/accountsDatabase.csv";
+
+    QFile file(accPath);
 
     // Exception code
-        QFile file(accPath);
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            QMessageBox::warning(parent,"Exception","file could not be opened");
+            QMessageBox::warning(parent,"Exception","file could not be opened for transaction");
             return;
         }
     // Exception code
@@ -45,10 +49,125 @@ transaction::transaction(QWidget* parent, int lineNoObtained)
 
 }
 
-void transaction::updateBalance(){
-    // update balance of csv file using QString accRecord
+void transaction::updateBalance(){   
+    return;         // For now, not using csv editing
     accRecord = this->accNoString+","+this->pinString+","+this->name+","+this->balanceString;
+    //QMessageBox::about(parent," Done with updating, Replacement: ",accRecord);
+    int lines = lineNo;
 
+    QFile file(accPath);
+
+    // Exception code
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            QMessageBox::warning(parent,"Exception","file could not be opened for updating balance !");
+            return;
+        }
+    // Exception code
+        QVector<QString> eachLine;
+       QTextStream in(&file);
+       while (lines>1)
+       {
+          eachLine.push_back(in.readLine());    //read one line at a time
+          lines--;
+       }
+
+       QString doucheBag = in.readLine();
+
+       eachLine.push_back(accRecord);
+
+       while(!in.atEnd()){
+           eachLine.push_back(in.readLine());
+        }
+        QString actualText;
+        for(int i=0; i<eachLine.length(); i++){
+                actualText.append(eachLine[i]);
+                actualText.append("\n");
+        }
+
+        file.close();
+
+
+/*
+                QFile newData(":/database/DB/accountsDatabaseNew.csv");
+                if(newData.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                    QMessageBox::about(parent,"Succesful","Opened previous try");
+                    QTextStream out(&newData);
+                    out << actualText;
+                    newData.close();
+                }
+*/
+
+                QFile nfile("accountsDatabaseNew.csv");
+                    if(nfile.open(QIODevice::WriteOnly | QIODevice::Truncate))
+                    {
+                        // QMessageBox::about(parent,"Succesful","Opened new try");
+                        QTextStream out(&nfile);
+                        out << actualText;
+                        nfile.close();
+                    }
+
+        //QMessageBox::about(parent,"new txt for DB: ",actualText);
+
+        // each line has all updated data           in  form of a vector
+       // qstring with whole data buckled up as a single qstring
+
+
+            /*
+          for(int i=0; i<eachLine.length(); i++){
+                 QMessageBox::about(parent,QString::number(eachLine.length()),eachLine[i]);
+          }
+            */
+
+
+        //if(!writeFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+           // QMessageBox::warning(parent,"New file creation","Unsuccessful");
+            //return;
+          //}
+
+
+
+        //QTextStream out(&writeFile);
+        // out << actualText;
+
+
+
+
+
+
+            /*
+                    Some more shitty code:
+
+            QFile write(":/database/DB/accountsDatabaseTemp.csv");
+            if(!file.open(QFile::WriteOnly | QFile::Text)) {
+                QMessageBox::warning(parent,"New file creation","Unsuccessful");
+                return;
+              }
+            QTextStream out(&file);
+
+            out << actualText;
+
+            write.flush();
+            write.close();
+            */
+
+
+
+          /*        Old shitty code:
+           *
+          QFile writeFile(accRecord);
+          if(!writeFile.open(QFile::WriteOnly | QFile::Text)) {
+              QMessageBox::warning(parent,"..","file not open");
+              return;
+            }
+
+          QTextStream write(&writeFile);
+         for(int i=0; i<eachLine.length(); i++){
+                write<< eachLine[i]<<"\n";
+         }
+
+      writeFile.flush();
+      writeFile.close();
+      */
     /*
     ifstream fileReader;
     fileReader.open("accountsDatabase.csv",ios::in);
@@ -90,111 +209,26 @@ bool transaction::withdraw(int amount){
         if( (this->balance - amount) < 0  )
             return false;
 
-        this->balance = balance - amount;
+        if(amount==0)
+            QMessageBox::about(parent," ","amount is 0");
+
+        this->balance = this->balance - amount;
         balanceString = QString::number(balance);
         updateBalance();
 
         return true;
 }
-
-/*
-
-
-/*                      My csv file code :
-
-int csvFile::displaySingleCust(string custID, vector<string> &newValuePredefined){
-    int nthLine=0;
-    string check = custID.substr (0, 9);
-    if(check==custID){
-        cout<<"Invalid ID entered :(\t";
-        return -1;
-    }
-    inputStream.open(fileName);
-    getline(inputStream,line);
-    bool flag = false;
-    int numericalID;
-    while(!inputStream.eof()){
-        nthLine++;
-        getline(inputStream,line);
-        stringstream ss(line);
-        getline(ss,newValuePredefined[0],',');
-        getline(ss,newValuePredefined[1],',');
-        getline(ss,newValuePredefined[2],',');
-        getline(ss,newValuePredefined[3],',');
-        getline(ss,newValuePredefined[4],',');
-        numericalID = stoi(newValuePredefined[4]);
-        newValuePredefined[4] = prefix + newValuePredefined[4];
-        if(newValuePredefined[4]==custID){
-            flag = true;
-            break;
-        }
-    }
-    if(!flag){
-        cout<<"ID not found :-(\n";
-        return -1;
-    }
-    cout<<"------------------------------------------------------------------------------------"<<endl;
-    cout<<"Name: "<<newValuePredefined[0]<<endl;
-    cout<<"Address: "<<newValuePredefined[1]<<endl;
-    cout<<"Total Transaction: "<<newValuePredefined[2];
-    cout<<"\t\t\tPhone: "<<newValuePredefined[3];
-    cout<<"\t\t\tCust ID: "<<newValuePredefined[4]<<endl;
-    cout<<"------------------------------------------------------------------------------------"<<endl;
-    inputStream.close();
-    newValuePredefined[4] = to_string(numericalID);
-    return nthLine;
-}
-string csvFile::addCustomer(string name, string addr, string amount, string phone){
-        string newID;
-        int newNumericID = ++IDnumeric;
-        currentID = prefix + to_string(IDnumeric);
-        ofstream fout;
-        fout.open(fileName,ios::app);
-
-        fout<<"\n"<<name<<","<<addr<<","<<amount<<","<<phone<<","<<newNumericID;
-        fout.close();
-        return currentID;
-}
-void csvFile::editRecord(string newLine, string custID, int dataLineNth){
-    inputStream.open(fileName);
-    ofstream newTemp;
-    if(doesExist("newTempFile.csv")){
-        remove("newTempFile.csv");
-    }
-    newTemp.open("newTempFile.csv",fstream::app);
-    getline(inputStream,line);
-    newTemp<<heading;
-    while(dataLineNth>1){
-        getline(inputStream,line);
-        newTemp<<"\n"<<line;
-        dataLineNth--;
-    }
-    newTemp<<"\n"<<newLine;
-    getline(inputStream,line);
-    while(!inputStream.eof()){
-        getline(inputStream,line);
-        newTemp<<"\n"<<line;
-    }
-
-    inputStream.close();
-    newTemp.close();
-    // removing the existing file
-    remove("custRec.csv");
-
-    // renaming the updated file with the existing file name
-    rename("newTempFile.csv", "custRec.csv");
-
-    cout<<"Successfully edited the record for ID: "<<custID<<endl;
-    cout<<"Whole data: "<<endl;
-    display();
+QString transaction::getBalance(){
+        return balanceString;
 }
 
 
-*/
+
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*
  * Layout for csv file:
+
 
 11772201,1436,OmkarGajananPhansopkar,4500
 11772202,1234,KaranSudhakarKotian,5800
@@ -203,94 +237,5 @@ void csvFile::editRecord(string newLine, string custID, int dataLineNth){
 11773505,4567,RohanDarade,9000
 
 
-
-
-utility::utility(string accNo) : data(new utilityData)
-{
-        this->accNo = accNo;
-        fstream file;
-        file.open("accountsDatabase.csv",ios::in);
-        this->accLineNo=0;
-        while(!file.eof()){
-            this->accLineNo++;
-            getline(file,accRecord);
-            stringstream ss(accRecord);
-            getline(ss,this->accNo,',');
-            getline(ss,this->pinString,',');
-            getline(ss,this->name,',');
-            getline(ss,this->balanceString,',');
-
-            if(this->accNo==accNo){
-                this->pin = stoi(pinString);
-                this->currBalance = stoi(balanceString);
-                break;
-            }
-
-        }
-
-        file.close();
-        //      Fetch out pin for the given account no              and             set Line no when line found     and     String  accRecord
-}
-
-utility::utility(const utility &rhs) : data(rhs.data)
-{
-
-}
-
-utility &utility::operator=(const utility &rhs)
-{
-    if (this != &rhs)
-        data.operator=(rhs.data);
-    return *this;
-}
-void utility::updateBalance(){
-    // update balance of csv file using this.balance        and     also change String accRecord
-    accRecord = this->accNo+","+this->pinString+","+this->name+","+this->balanceString;
-
-    ifstream fileReader;
-    fileReader.open("accountsDatabase.csv",ios::in);
-
-    ofstream fileWriterNewer;
-    fileWriterNewer.open("newTempFile.csv",fstream::app);
-
-    int traverse = this->accLineNo;
-    string currentLine;
-    while(traverse>1){
-        getline(fileReader,currentLine);
-        fileWriterNewer<<currentLine<<"\n";
-        traverse--;
-    }
-
-    fileWriterNewer<< this->accRecord <<"\n";
-    getline(fileReader,currentLine);
-
-    while(!fileReader.eof()){
-        getline(fileReader,currentLine);
-        fileWriterNewer<<currentLine<<"\n";
-    }
-
-    fileReader.close();
-    fileWriterNewer.close();
-
-    remove("accountsDatabase.csv");
-    rename("newTempFile.csv","accountsDatabase.csv");
-
-}
-void utility::deposit(int amount){
-        this->currBalance = this->currBalance + amount;
-        balanceString = to_string(currBalance);
-        updateBalance();
-}
-bool utility::withdraw(int amount){
-        if( (this->currBalance - amount) < 0  )
-            return false;
-
-        this->currBalance = currBalance - amount;
-        balanceString = to_string(currBalance);
-
-        updateBalance();
-
-        return true;
-}
 
 */

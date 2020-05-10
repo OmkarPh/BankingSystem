@@ -74,6 +74,10 @@ void Welcome::on_loginButton_clicked()
           //    QMessageBox::about(this," user ",validUsername);
        //       QMessageBox::about(this," pass ",validPassword);
     //          QMessageBox::about(this," acc ",accountNo);
+
+          ui->pushButton_2->setText("Show");
+          ui->password->setEchoMode(QLineEdit::Password);
+
           if(validUsername==username){
               foundUser = true;
               break;
@@ -81,6 +85,7 @@ void Welcome::on_loginButton_clicked()
        }
        file.close();
 
+        on_pushButton_2_clicked(false);
        if(foundUser){
            if(validPassword == password){
                    // Change window to options.ui, hide this login window
@@ -139,7 +144,7 @@ void Welcome::on_password_textChanged(const QString &arg1)
             ui->loginButton->setEnabled(canEnableLoginButton());
 }
 
-void Welcome::on_pushButton_2_clicked()
+void Welcome::on_pushButton_2_clicked(bool hide)
 {
     if(ui->pushButton_2->text()=="Show"){
         ui->pushButton_2->setText("Hide");
@@ -150,4 +155,11 @@ void Welcome::on_pushButton_2_clicked()
         ui->password->setEchoMode(QLineEdit::Password);
     }
 
+}
+
+void Welcome::on_pushButton_5_clicked()
+{
+        abt = new about();
+        abt->show();
+        abt->exec();
 }

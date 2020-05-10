@@ -9,6 +9,7 @@
 #include<QDialog>
 #include<QMessageBox>
 #include<options.h>
+#include<about.h>
 using namespace  std;
 QT_BEGIN_NAMESPACE
 namespace Ui { class Welcome; }
@@ -29,7 +30,7 @@ public:
     QString validPassword;
     QString accountNo;
     Options *currentCutomer;
-
+    about *abt;
 private slots:
     void on_loginButton_clicked();
 
@@ -40,7 +41,9 @@ private slots:
     void on_password_textChanged(const QString &arg1);
 
     bool canEnableLoginButton();
-    void on_pushButton_2_clicked();
+    void on_pushButton_2_clicked(bool hide=true);
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::Welcome *ui;

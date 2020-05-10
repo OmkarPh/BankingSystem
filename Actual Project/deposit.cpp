@@ -22,13 +22,18 @@ void Deposit::on_pushButton_3_clicked()
 
 void Deposit::on_pushButton_clicked()
 {
-    amountStr = ui->amountToDeposit->text();
+        int amountStr = ui->amountToDeposit->value();
 
-        customer->deposit(amountStr.toInt());
+        customer->deposit(amountStr);
         QMessageBox::about(this,"Successfully deposited", "Collect receipt for transaction");
         this->close();
         return;
 
 
 
+}
+
+void Deposit::on_pushButton_2_clicked()
+{
+    this->close();
 }

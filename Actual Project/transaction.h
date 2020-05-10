@@ -26,16 +26,16 @@ public:
 
     QString userPath;
     QString accPath ;
-
+    QWidget *parent;
     QString accNoString, pinString, name, balanceString;
     int pin, accNo, balance;
-
     QString accRecord;
-
 
     void updateBalance();
     void deposit(int amount);
     bool withdraw(int amount);
+
+    QString getBalance();
 
 };
 

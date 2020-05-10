@@ -1,4 +1,4 @@
-#include "options.h"
+﻿#include "options.h"
 #include "ui_options.h"
 #include<QMessageBox>
 #include<QTextStream>
@@ -14,13 +14,10 @@ Options::Options(QWidget *parent, int lineNoObtained) :
 
    currentCust = new transaction(this, this->lineNo);
 
-    // Exception code
-        QFile file(accPath);
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            QMessageBox::warning(this,"Exception","file could not be opened");
-            return;
-        }
-    // Exception code
+   ui->welcomeName->setText(currentCust->name);
+
+
+       /*
 
        QTextStream in(&file);
        while (lineNoObtained>0)
@@ -38,6 +35,8 @@ Options::Options(QWidget *parent, int lineNoObtained) :
        balance = balanceString.toInt();
        ui->welcomeName->setText(name);
        file.close();
+
+       */
 }
 
 Options::~Options()
@@ -54,4 +53,34 @@ void Options::on_pushButton_8_clicked()
 void Options::on_logout_clicked()
 {
     this->close();
+}
+
+void Options::on_viewBalance_clicked()
+{
+    QMessageBox::about(this,"Balance enquiry","Your balance : ₹ "+currentCust->getBalance()+"\nView the statement for details about transactions.");
+}
+
+void Options::on_withdraw_clicked()
+{
+    withdraw *transact = new withdraw(this, currentCust);
+    transact->setModal(true);
+    transact->show();
+    transact->exec();
+}
+
+void Options::on_deposit_clicked()
+{
+    Deposit *transact = new Deposit(this, currentCust);
+    transact->setModal(true);
+    transact->show();
+    transact->exec();
+
+}
+
+void Options::on_pushButton_5_clicked()
+{
+
+    abt = new about();
+    abt->show();
+    abt->exec();
 }

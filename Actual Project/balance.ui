@@ -81,19 +81,6 @@
     <string>Logout and Exit</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>10</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>About</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

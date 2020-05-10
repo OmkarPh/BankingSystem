@@ -14,12 +14,13 @@ class Deposit : public QDialog
 public:
     explicit Deposit(QWidget *parent = nullptr, transaction *currentCust = nullptr);
     ~Deposit();
-    QString amountStr;
     transaction *customer;
 private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Deposit *ui;
