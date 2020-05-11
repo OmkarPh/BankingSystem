@@ -4,7 +4,6 @@ QT       += core gui \
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
-
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -18,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     about.cpp \
-    balance.cpp \
     deposit.cpp \
     main.cpp \
     options.cpp \
@@ -28,7 +26,6 @@ SOURCES += \
 
 HEADERS += \
     about.h \
-    balance.h \
     deposit.h \
     options.h \
     transaction.h \
@@ -37,7 +34,6 @@ HEADERS += \
 
 FORMS += \
     about.ui \
-    balance.ui \
     deposit.ui \
     options.ui \
     welcome.ui \
@@ -53,4 +49,4 @@ DISTFILES += \
     userNameNPass.csv
 
 RESOURCES += \
-    DB.qrc
+    images.qrc

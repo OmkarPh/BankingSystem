@@ -6,6 +6,7 @@ withdraw::withdraw(QWidget *parent, transaction *currentCust) :
     ui(new Ui::withdraw)
 {
     ui->setupUi(this);
+    ui->warning->setVisible(false);
     customer = currentCust;
 }
 
@@ -29,6 +30,10 @@ void withdraw::on_withdrawButton_clicked()
         ui->warning->setVisible(false);
         QMessageBox::about(this,"Withdrawal successful", "Please collect the cash.");
         this->close();
+        return;
+    }
+    if(ui->warning->isVisible()){
+        QMessageBox::about(this,"Invalid Pin","Try re-entering the pin !");
         return;
     }
     ui->warning->setVisible(true);

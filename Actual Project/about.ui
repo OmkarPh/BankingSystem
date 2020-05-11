@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>524</height>
+    <width>650</width>
+    <height>550</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>650</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>650</width>
+    <height>550</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -47,19 +59,19 @@
     <rect>
      <x>40</x>
      <y>120</y>
-     <width>341</width>
+     <width>491</width>
      <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* C++&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* QT Libs available with QT basic installation.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* CSV (Poor, but an encrypted version of this database is used.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* C++&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* QT Libs available with QT basic installation.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* CSV ( Poor, but an encrypted version of this database is used. )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>470</y>
+     <y>480</y>
      <width>241</width>
      <height>51</height>
     </rect>
@@ -72,7 +84,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>210</y>
+     <y>220</y>
      <width>601</width>
      <height>131</height>
     </rect>
@@ -91,7 +103,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contributions are always welcome :) -&amp;gt; &lt;/span&gt;&lt;a href=&quot;https://github.com/OmkarPh/BankingSystem&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/OmkarPh/BankingSystem&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;My personal website: &lt;/span&gt;&lt;a href=&quot;http://omkarph.rf.gd/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://omkarph.rf.gd/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contact me: omkarphansopkar@gmail.com &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contributions are always welcome ;-) -&amp;gt; &lt;/span&gt;&lt;a href=&quot;https://github.com/OmkarPh/BankingSystem&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/OmkarPh/BankingSystem&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;My personal website: &lt;/span&gt;&lt;a href=&quot;http://omkarph.rf.gd/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://omkarph.rf.gd/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contact me: omkarphansopkar@gmail.com &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

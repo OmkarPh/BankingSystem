@@ -17,6 +17,7 @@ Options::Options(QWidget *parent, int lineNoObtained) :
    ui->welcomeName->setText(currentCust->name);
 
 
+   this->setWindowTitle("Transactions");
        /*
 
        QTextStream in(&file);
@@ -80,7 +81,7 @@ void Options::on_deposit_clicked()
 void Options::on_pushButton_5_clicked()
 {
 
-    abt = new about();
+    abt = new about(this);
     abt->show();
     abt->exec();
 }

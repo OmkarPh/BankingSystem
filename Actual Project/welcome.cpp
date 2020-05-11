@@ -21,14 +21,40 @@ account details:
 11773503,9876,RupeshSandeshRaut,5400
 11773505,4567,RohanDarade,9000
 
+11772201,1436,OmkarGajananPhansopkar,4500\n11772202,1234,KaranSudhakarKotian,5800\n11834592,2020,AniruddhaShriwant,15500\n11773503,9876,RupeshSandeshRaut,5400\n11773505,4567,RohanDarade,9000\n
 
 */
 Welcome::Welcome(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Welcome)
 {
-    userPath = ":/database/DB/userNameNPass.csv";
-    accPath = ":/database/DB/accountsDatabase.csv";
+    //userPath = ":/database/DB/userNameNPass.csv";
+    //accPath = ":/database/DB/accountsDatabase.csv";
+    userPath = "userNameNPass.csv";
+    accPath = "accountsDatabase.csv";
+    QString textUser = "omkar@2003,1436@omkar,11772201\nkaran@2003,karan@123,11772202\naniruddha16203,galaxy@M20,11834592\nrupesh@raut,rupesh2003,11773503\ndarade@rohan,rohan@web,11773505\n";
+    QString textAcc = "11772201,1436,OmkarGajananPhansopkar,4500\n11772202,1234,KaranSudhakarKotian,5800\n11834592,2020,AniruddhaShriwant,15500\n11773503,9876,RupeshSandeshRaut,5400\n11773505,4567,RohanDarade,9000\n";
+    QFile temp1(userPath);
+    QFile temp2(accPath);
+
+    if (!temp1.exists() || !temp2.exists()){
+
+        if(temp1.open(QIODevice::WriteOnly | QIODevice::Truncate))
+        {
+            // QMessageBox::about(parent,"Succesful","Opened new try");
+            QTextStream out(&temp1);
+            out << textUser;
+            temp1.close();
+        }
+        if(temp2.open(QIODevice::WriteOnly | QIODevice::Truncate))
+        {
+            // QMessageBox::about(parent,"Succesful","Opened new try");
+            QTextStream out(&temp2);
+            out << textAcc;
+            temp2.close();
+        }
+    }
+    this->setWindowTitle("Welcome to XYZ bank");
     ui->setupUi(this);
 }
 
@@ -75,9 +101,6 @@ void Welcome::on_loginButton_clicked()
        //       QMessageBox::about(this," pass ",validPassword);
     //          QMessageBox::about(this," acc ",accountNo);
 
-          ui->pushButton_2->setText("Show");
-          ui->password->setEchoMode(QLineEdit::Password);
-
           if(validUsername==username){
               foundUser = true;
               break;
@@ -91,8 +114,9 @@ void Welcome::on_loginButton_clicked()
                    // Change window to options.ui, hide this login window
                QMessageBox::about(this,"Successful Login","Correct username and password :)");
                 currentCutomer = new Options(this,lineNo);
+                currentCutomer->setModal(true);
                 currentCutomer->show();
-                this->hide();
+                //this->hide();
                 currentCutomer->exec();
                 this->show();
            }else{
@@ -113,6 +137,9 @@ void Welcome::on_loginButton_clicked()
 
        ui->username->setText("");
        ui->password->setText("");
+
+       ui->pushButton_2->setText("Show");
+       ui->password->setEchoMode(QLineEdit::Password);
 
        return;
 }
@@ -154,12 +181,17 @@ void Welcome::on_pushButton_2_clicked(bool hide)
         ui->pushButton_2->setText("Show");
         ui->password->setEchoMode(QLineEdit::Password);
     }
-
+    /*
+    if(!hide){
+        ui->pushButton_2->setText("Show");
+        ui->password->setEchoMode(QLineEdit::Password);
+    }
+    */
 }
 
 void Welcome::on_pushButton_5_clicked()
 {
-        abt = new about();
+        abt = new about(this);
         abt->show();
         abt->exec();
 }

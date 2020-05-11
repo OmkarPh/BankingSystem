@@ -19,8 +19,8 @@ transaction::transaction(QWidget* parent, int lineNoObtained)
     this->parent = parent;
     this->lineNo = lineNoObtained;
     this->lineNo = lineNoObtained;
-    userPath = ":/database/DB/userNameNPass.csv";
-    accPath = ":/database/DB/accountsDatabase.csv";
+    userPath = "userNameNPass.csv";
+    accPath = "accountsDatabase.csv";
 
     QFile file(accPath);
 
@@ -50,7 +50,7 @@ transaction::transaction(QWidget* parent, int lineNoObtained)
 }
 
 void transaction::updateBalance(){   
-    return;         // For now, not using csv editing
+     // For now, not using csv editing
     accRecord = this->accNoString+","+this->pinString+","+this->name+","+this->balanceString;
     //QMessageBox::about(parent," Done with updating, Replacement: ",accRecord);
     int lines = lineNo;
@@ -85,17 +85,7 @@ void transaction::updateBalance(){
         }
 
         file.close();
-
-
-/*
-                QFile newData(":/database/DB/accountsDatabaseNew.csv");
-                if(newData.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                    QMessageBox::about(parent,"Succesful","Opened previous try");
-                    QTextStream out(&newData);
-                    out << actualText;
-                    newData.close();
-                }
-*/
+        file.remove();
 
                 QFile nfile("accountsDatabaseNew.csv");
                     if(nfile.open(QIODevice::WriteOnly | QIODevice::Truncate))
@@ -105,7 +95,7 @@ void transaction::updateBalance(){
                         out << actualText;
                         nfile.close();
                     }
-
+                   nfile.rename(accPath);
         //QMessageBox::about(parent,"new txt for DB: ",actualText);
 
         // each line has all updated data           in  form of a vector
@@ -206,8 +196,10 @@ void transaction::deposit(int amount){
         updateBalance();
 }
 bool transaction::withdraw(int amount){
-        if( (this->balance - amount) < 0  )
+        if( (this->balance - amount) < 0  ){
+            QMessageBox::warning(parent,"Invalid Value","Insufficient balance to withdraw entered amount");
             return false;
+        }
 
         if(amount==0)
             QMessageBox::about(parent," ","amount is 0");
