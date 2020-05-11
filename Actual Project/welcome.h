@@ -10,6 +10,7 @@
 #include<QMessageBox>
 #include<options.h>
 #include<about.h>
+#include<newuser.h>
 using namespace  std;
 QT_BEGIN_NAMESPACE
 namespace Ui { class Welcome; }
@@ -30,6 +31,8 @@ public:
     QString validPassword;
     QString accountNo;
     Options *currentCutomer;
+    newUser *custNew3;
+
     about *abt;
 private slots:
     void on_loginButton_clicked();
@@ -44,6 +47,8 @@ private slots:
     void on_pushButton_2_clicked(bool hide=true);
 
     void on_pushButton_5_clicked();
+
+    void on_signUpButton_clicked();
 
 private:
     Ui::Welcome *ui;

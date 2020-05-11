@@ -108,7 +108,6 @@ void Welcome::on_loginButton_clicked()
        }
        file.close();
 
-        on_pushButton_2_clicked(false);
        if(foundUser){
            if(validPassword == password){
                    // Change window to options.ui, hide this login window
@@ -131,6 +130,7 @@ void Welcome::on_loginButton_clicked()
            QMessageBox::StandardButton newSignUp =  QMessageBox::question(this,"Invalid Username","Would you like to sign up for a new account?",QMessageBox::Yes | QMessageBox::No);
            if(newSignUp == QMessageBox::Yes){
                QMessageBox::about(this,"Sign Up","Redirecting to signup page");
+               on_signUpButton_clicked();
                // Signup block is incomplete
            }
        }
@@ -194,4 +194,13 @@ void Welcome::on_pushButton_5_clicked()
         abt = new about(this);
         abt->show();
         abt->exec();
+}
+
+
+void Welcome::on_signUpButton_clicked()
+{
+    custNew3 = new newUser(this);
+    custNew3->setModal(true);
+    custNew3->show();
+    custNew3->exec();
 }

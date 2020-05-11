@@ -19,6 +19,7 @@ SOURCES += \
     about.cpp \
     deposit.cpp \
     main.cpp \
+    newuser.cpp \
     options.cpp \
     transaction.cpp \
     welcome.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     about.h \
     deposit.h \
+    newuser.h \
     options.h \
     transaction.h \
     welcome.h \
@@ -35,6 +37,7 @@ HEADERS += \
 FORMS += \
     about.ui \
     deposit.ui \
+    newuser.ui \
     options.ui \
     welcome.ui \
     withdraw.ui

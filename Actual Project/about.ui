@@ -23,16 +23,16 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>About Project</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(230, 216, 248);</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>0</y>
+     <y>-10</y>
      <width>391</width>
      <height>61</height>
     </rect>
@@ -45,9 +45,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>50</y>
+     <y>30</y>
      <width>591</width>
-     <height>81</height>
+     <height>91</height>
     </rect>
    </property>
    <property name="text">
@@ -58,20 +58,20 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>120</y>
+     <y>110</y>
      <width>491</width>
      <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* C++&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* QT Libs available with QT basic installation.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* CSV ( Poor, but an encrypted version of this database is used. )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;C++&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* QT Libs available with QT basic installation.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;CSV&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; ( Poor, but an&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt; encrypted&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; version of this database is used. )&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>480</y>
+     <x>400</x>
+     <y>500</y>
      <width>241</width>
      <height>51</height>
     </rect>
@@ -84,20 +84,20 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>220</y>
-     <width>601</width>
-     <height>131</height>
+     <y>210</y>
+     <width>631</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Banking System is basically a mini project by me, Omkar Phansopkar for subject project &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;and It is not with the best security available but it works, so Security is the biggest thing &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;you can improve and contribute to if interested, since am not working on it anymore.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Banking System is basically a mini project by me, Omkar Phansopkar for subject project &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;and It is not with the best security available but it works, so Security is the biggest thing &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;you can improve and contribute to if interested, since am not working on the project anymore.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>380</y>
+     <y>450</y>
      <width>581</width>
      <height>81</height>
     </rect>
@@ -105,7 +105,44 @@
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contributions are always welcome ;-) -&amp;gt; &lt;/span&gt;&lt;a href=&quot;https://github.com/OmkarPh/BankingSystem&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/OmkarPh/BankingSystem&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;My personal website: &lt;/span&gt;&lt;a href=&quot;http://omkarph.rf.gd/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://omkarph.rf.gd/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Contact me: omkarphansopkar@gmail.com &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+   </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>631</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* View mini Statement i.e. Maintain a record of previous /transactions and display it.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;* View / Edit profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>310</y>
+     <width>381</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Features remaining:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label</zorder>
+  <zorder>label_8</zorder>
  </widget>
  <resources/>
  <connections/>

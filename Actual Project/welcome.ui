@@ -80,7 +80,7 @@
       <x>280</x>
       <y>550</y>
       <width>281</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -283,6 +283,15 @@ selection{
    </widget>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>username</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>signUpButton</tabstop>
+  <tabstop>pushButton_5</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

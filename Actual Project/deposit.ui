@@ -30,7 +30,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Deposit</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(184, 255, 201);</string>

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Withdraw Cash</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 204, 84);</string>
@@ -218,6 +218,13 @@ border-color: rgb(170, 0, 0);</string>
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>amountToWithdraw</tabstop>
+  <tabstop>pinEntered</tabstop>
+  <tabstop>withdrawButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_3</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

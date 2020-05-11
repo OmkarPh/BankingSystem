@@ -200,10 +200,6 @@ bool transaction::withdraw(int amount){
             QMessageBox::warning(parent,"Invalid Value","Insufficient balance to withdraw entered amount");
             return false;
         }
-
-        if(amount==0)
-            QMessageBox::about(parent," ","amount is 0");
-
         this->balance = this->balance - amount;
         balanceString = QString::number(balance);
         updateBalance();
@@ -214,7 +210,9 @@ QString transaction::getBalance(){
         return balanceString;
 }
 
+QString transaction::encrypt(QString givenQString, int p1, int p2){
 
+}
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

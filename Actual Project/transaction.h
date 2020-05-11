@@ -36,7 +36,7 @@ public:
     bool withdraw(int amount);
 
     QString getBalance();
-
+    static QString encrypt(QString givenQString, int p1 = 23, int p2 = 37);
 };
 
 #endif // TRANSACTION_H

@@ -26,9 +26,9 @@ void withdraw::on_withdrawButton_clicked()
     QString pinStr = ui->pinEntered->text();
 
     if(pinStr == customer->pinString){
-        customer->withdraw(amount);
+        if(customer->withdraw(amount))
+                QMessageBox::about(this,"Withdrawal successful", "Please collect the cash.");
         ui->warning->setVisible(false);
-        QMessageBox::about(this,"Withdrawal successful", "Please collect the cash.");
         this->close();
         return;
     }
