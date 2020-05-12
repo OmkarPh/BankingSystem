@@ -23,7 +23,7 @@ Banking System is basically a mini project by me, [Omkar Phansopkar](http://omka
 
 ### Wanna just try out and explore output for already built project, with no need of any system configuration (Compiled for windows only)
 
-Open the [Final_Release folder](https://github.com/OmkarPh/BankingSystem/tree/master/Final_Release) in Repo and run " BankingSystem.exe " file directly on your windows PC.
+Open the [Final_Release folder](https://github.com/OmkarPh/BankingSystem/tree/master/Final_Release) in Repo and download & unzip files then run "1 BankingSystem.exe " file directly on your windows PC.
 
 ***Contributions are always welcome :)***
 

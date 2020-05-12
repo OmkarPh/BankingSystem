@@ -1,11 +1,13 @@
 # C++ objects and libs
 *.slo
 *.lo
+*.o
 *.a
 *.la
 *.lai
 *.so
 *.so.*
+*.dll
 *.dylib
 
 # Qt-es
@@ -48,3 +50,7 @@ compile_commands.json
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+
+# Final Release folders with build files and not the link files
+Final_Release/Release 1.0/*
+Final_Release/Beta0.5  Basic Operations Ready/*
